@@ -197,7 +197,7 @@ npm test
 
 1️⃣ Clone Repository
 
-git clone <your-repo-url>
+git clone <https://github.com/poojakalukhe2003/collaborative-task-manager.git>
 cd collaborative-task-manager
 
 
