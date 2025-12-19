@@ -8,13 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ mount routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
-
-// health check (optional but useful)
-app.get("/", (req, res) => {
-  res.send("API running");
-});
 
 export default app;

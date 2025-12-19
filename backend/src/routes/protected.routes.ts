@@ -6,7 +6,7 @@ const router = Router();
 router.get("/me", authMiddleware, (req: AuthRequest, res) => {
   res.json({
     message: "Protected route accessed",
-    userId: req.userId,
+    userId: req.user?.id
   });
 });
 
