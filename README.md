@@ -8,9 +8,9 @@ This project was developed as part of a Full-Stack Engineering Assessment.
 
 🚀 Live Demo
 
-Frontend: (add your deployed frontend URL here)
+Frontend: na
 
-Backend API: (add your deployed backend URL here)
+Backend API: na
 
 
 
@@ -210,8 +210,8 @@ npm install
 
 Create .env:
 
-DATABASE_URL=postgresql://user:password@localhost:5432/taskdb
-JWT_SECRET=your_secret_key
+DATABASE_URL=postgresql://postgres.ceilziihkhoycrsrqzju:Postgress1234@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres
+JWT_SECRET=supersecretkey
 
 Run Prisma:
 
