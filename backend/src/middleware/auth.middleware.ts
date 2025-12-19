@@ -2,7 +2,9 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 export interface AuthRequest extends Request {
-  user?: { id: string };
+  user?: {
+    id: string;
+  };
 }
 
 export const authMiddleware = (
@@ -12,15 +14,18 @@ export const authMiddleware = (
 ) => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader?.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Unauthorized" });
+  if (!authHeader) {
+    return res.status(401).json({ message: "No token provided" });
   }
 
-  try {
-    const token = authHeader.split(" ")[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string };
+  const token = authHeader.split(" ")[1];
 
-    req.user = { id: decoded.id };
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {
+      userId: string;
+    };
+
+    req.user = { id: decoded.userId };
     next();
   } catch {
     return res.status(401).json({ message: "Invalid token" });
